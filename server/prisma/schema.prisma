@@ -1,0 +1,178 @@
+
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// use prisma-8
+
+enum Provider {
+  GOOGLE
+}
+
+enum Asset {
+  SOL
+  USDT
+}
+
+enum OrderSide {
+  BUY
+  SELL
+}
+
+enum OrderType {
+  LIMIT
+  MARKET
+}
+
+enum OrderStatus {
+  OPEN
+  PARTIALLY_FILLED
+  FILLED
+  CANCELLED
+  REJECTED
+}
+
+enum CreatedType {
+  HUMAN
+  SYSTEM
+}
+
+enum LedgerType {
+  DEPOSIT
+  TRADE
+  FEE
+  RESERVATION
+  RELEASE
+}
+
+
+model User {
+  id        String   @id @default(uuid()) @db.Uuid
+  googleId  String   @unique
+  provider  Provider @default(GOOGLE)
+
+  firstName String
+  lastName  String
+  email     String   @unique
+
+  wallet    Wallet?
+  orders    Order[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Wallet {
+  id      String @id @default(uuid()) @db.Uuid
+  userId  String @unique @db.Uuid
+
+  user          User          @relation(fields: [userId], references: [id])
+  balances      Balance[]
+  ledgerEntries LedgerEntry[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Balance {
+  id       String  @id @default(uuid()) @db.Uuid
+  walletId String  @db.Uuid
+
+  asset     Asset
+  available Decimal @default(0)
+  reserved  Decimal @default(0)
+
+  wallet Wallet @relation(fields: [walletId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([walletId, asset])
+}
+
+
+model Market {
+  id        String @id @default(uuid()) @db.Uuid
+
+  symbol    String @unique
+  baseAsset Asset
+  quoteAsset Asset
+
+  orders Order[]
+  trades Trade[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([baseAsset, quoteAsset])
+}
+
+
+model Order {
+  id       String @id @default(uuid()) @db.Uuid
+
+  userId   String @db.Uuid
+  marketId String @db.Uuid
+
+  side   OrderSide
+  type   OrderType
+  status OrderStatus
+
+  price            Decimal?
+  quantity         Decimal
+  remainingQuantity Decimal
+
+  createdType CreatedType
+  sequence    BigInt?
+
+  user   User   @relation(fields: [userId], references: [id])
+  market Market @relation(fields: [marketId], references: [id])
+
+  buyTrades  Trade[] @relation("BuyOrderTrades")
+  sellTrades Trade[] @relation("SellOrderTrades")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Trade {
+  id          String  @id @default(uuid()) @db.Uuid
+  marketId    String  @db.Uuid
+  buyOrderId  String  @db.Uuid
+  sellOrderId String  @db.Uuid
+
+  price    Decimal
+  quantity Decimal
+
+  market    Market @relation(fields: [marketId], references: [id])
+  buyOrder  Order  @relation("BuyOrderTrades", fields: [buyOrderId], references: [id])
+  sellOrder Order  @relation("SellOrderTrades", fields: [sellOrderId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+
+model LedgerEntry {
+  id String @id @default(uuid()) @db.Uuid
+
+  walletId String @db.Uuid
+  asset    Asset
+  amount   Decimal
+
+  type        LedgerType
+  referenceId String?
+
+  wallet Wallet @relation(fields: [walletId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+

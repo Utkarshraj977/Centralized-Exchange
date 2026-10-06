@@ -1,9 +1,10 @@
 import { Asset,LedgerType } from "../../../generated/prisma/enums"
+import type { Prisma } from "../../../generated/prisma/client";
 
 interface ledgerCreateInterface{
     walletId:string,
     asset:Asset
-    amount:number,
+    amount:Prisma.Decimal,
     type:LedgerType,
     referenceId?:string
 }

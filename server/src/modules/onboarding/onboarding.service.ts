@@ -3,6 +3,7 @@ import { createWalletService } from "../wallet/wallet.service";
 import { prisma } from "../../config/db";
 import { Asset,LedgerType } from "../../../generated/prisma/enums";
 import { ledgerCreateService } from "../ledger/ledger.service";
+import { Prisma } from "../../../generated/prisma/client";
 
 export const initializeUser = async (userid: string, firstname: string, lastname: string, email: string) => {
     try {
@@ -19,8 +20,8 @@ export const initializeUser = async (userid: string, firstname: string, lastname
             const wallet = await createWalletService(user.id,tx);
             const balanceUSDT = await balanceCreateService(wallet.id, Asset.USDT, 1000, tx);
             const balanceSOL = await balanceCreateService(wallet.id, Asset.SOL, 10, tx);
-            const ledger1= await ledgerCreateService({walletId:wallet.id,asset:Asset.SOL,amount:10.0,type:LedgerType.DEPOSIT},tx);
-            const ledger2= await ledgerCreateService({walletId:wallet.id,asset:Asset.USDT,amount:1000.0,type:LedgerType.DEPOSIT},tx);
+            const ledger1= await ledgerCreateService({walletId:wallet.id,asset:Asset.SOL,amount:Prisma.Decimal(10),type:LedgerType.DEPOSIT},tx);
+            const ledger2= await ledgerCreateService({walletId:wallet.id,asset:Asset.USDT,amount:Prisma.Decimal(1000),type:LedgerType.DEPOSIT},tx);
             return user;
         })
         return result;

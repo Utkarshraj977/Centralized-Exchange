@@ -68,3 +68,11 @@ export const LedgerType = {
 } as const
 
 export type LedgerType = (typeof LedgerType)[keyof typeof LedgerType]
+
+
+export const Role = {
+  USER: 'USER',
+  ADMIN: 'ADMIN'
+} as const
+
+export type Role = (typeof Role)[keyof typeof Role]

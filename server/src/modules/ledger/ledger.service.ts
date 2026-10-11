@@ -18,11 +18,18 @@ export const ledgerCreateService = async (data: ledgerCreateInterface,tx?:Prisma
     return ledger;
 }
 
-//Get All LedgerEntry feom wallet+assest
-export const ledgerGetAllService = async (data: ledgerFindAllInterface) => {
+//Get All LedgerEntry from userid+assest
+export const ledgerGetAllbyassetService = async (data: ledgerFindAllInterface) => {
+    const wallet=await prisma.wallet.findUnique({
+        where:{
+            userId:data.id,
+        }
+    });
+    if(!wallet) throw new Error("wallet not found");
+
     const ledger = await prisma.ledgerEntry.findMany({
         where: {
-            walletId: data.walletId,
+            walletId: wallet.id,
             asset: data.asset
         },
         orderBy:{
@@ -31,6 +38,28 @@ export const ledgerGetAllService = async (data: ledgerFindAllInterface) => {
     })
     return ledger;
 }
+
+//Get Ledger by id
+export const ledgerGetAllService = async (id:string) => {
+    const wallet=await prisma.wallet.findUnique({
+        where:{
+            userId:id
+        }
+    });
+    if(!wallet) throw new Error("wallet not found");
+
+    const ledger = await prisma.ledgerEntry.findMany({
+        where: {
+            walletId: wallet.id
+        },
+        orderBy:{
+            createdAt:'desc'
+        }
+    })
+    return ledger;
+}
+
+
 
 //Get Ledger by id
 export const ledgerGetbyIdService = async (id:string) => {

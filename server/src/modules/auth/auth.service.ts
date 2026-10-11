@@ -5,6 +5,7 @@ import { env } from "../../config/env";
 import { prisma } from "../../config/db";
 import { randomBytes, createHash } from "node:crypto";
 import {initializeUser} from "../onboarding/onboarding.service";
+import { Result } from "pg";
 
 
 export const googleloginservice = async (credential: string): Promise<string> => {
@@ -59,5 +60,15 @@ export const googlelogoutservice = async (token: string) => {
     const deleted_sesion = await prisma.session.delete({
         where: { tokenHash: hashedtoken }
     });
+}
+
+export const getProfileService=async (id:string)=>{
+    const user=await prisma.user.findUnique({
+        where:{
+            id:id
+        }
+    });
+    if(!user) throw new Error("user not found");
+    return user;
 }
 

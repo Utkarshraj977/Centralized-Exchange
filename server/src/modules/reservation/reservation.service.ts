@@ -15,7 +15,7 @@ type BalanceRow = {
 
 export const reserveBalance = async (data: reserveBalaceInterface,tx:Prisma.TransactionClient) => {
   
-    const balances=await tx.$queryRaw<BalanceRow[]>`select * from "balance" where "walletId"=${data.walletId} and "asset"=${data.asset} for update`;
+    const balances=await tx.$queryRaw<BalanceRow[]>`select * from "Balance" where "walletId"=${data.walletId} and "asset"=${data.asset} for update`;
 
     let balance=balances[0];
     if(!balance) throw new Error("balance not found");
@@ -39,8 +39,9 @@ export const reserveBalance = async (data: reserveBalaceInterface,tx:Prisma.Tran
     return {ledger,new_balance};
 }
 
+
 export const releaseBalance = async (data: releaseBalanceInterface,tx:Prisma.TransactionClient) => {
-    const balances=await tx.$queryRaw<BalanceRow[]>`select * from "balance" where "walletId"=${data.walletId} and "asset"=${data.asset} for update`;
+    const balances=await tx.$queryRaw<BalanceRow[]>`select * from "Balance" where "walletId"=${data.walletId} and "asset"=${data.asset} for update`;
     let balance=balances[0];
     if(!balance) throw new Error("balace not found");
     const relval=Prisma.Decimal(data.releasevalue);

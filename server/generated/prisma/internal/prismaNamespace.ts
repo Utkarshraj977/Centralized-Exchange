@@ -1062,6 +1062,7 @@ export const UserScalarFieldEnum = {
   firstName: 'firstName',
   lastName: 'lastName',
   email: 'email',
+  role: 'role',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1126,6 +1127,8 @@ export const OrderScalarFieldEnum = {
   price: 'price',
   quantity: 'quantity',
   remainingQuantity: 'remainingQuantity',
+  quoteAmount: 'quoteAmount',
+  remainQuoteAmount: 'remainQuoteAmount',
   createdType: 'createdType',
   sequence: 'sequence',
   createdAt: 'createdAt',
@@ -1216,6 +1219,20 @@ export type EnumProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
  * Reference to a field of type 'Provider[]'
  */
 export type ListEnumProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Provider[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Role'
+ */
+export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>
+    
+
+
+/**
+ * Reference to a field of type 'Role[]'
+ */
+export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>
     
 
 

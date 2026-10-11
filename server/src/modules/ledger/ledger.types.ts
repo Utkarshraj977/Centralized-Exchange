@@ -10,7 +10,7 @@ interface ledgerCreateInterface{
 }
 
 interface ledgerFindAllInterface{
-    walletId:string,
+    id:string,
     asset:Asset
 }
 

@@ -1,17 +1,18 @@
 import type { Asset } from "../../../generated/prisma/enums";
+import type { Decimal } from "../../../generated/prisma/internal/prismaNamespace";
 
 
 interface reserveBalaceInterface{
     walletId:string,
     asset:Asset,
-    reservalue:number,
+    reservalue:Decimal,
     orderId: string
 }
 
 interface releaseBalanceInterface{
     walletId:string,
     asset:Asset,
-    releasevalue:number,
+    releasevalue:Decimal,
     orderId: string
 }
 

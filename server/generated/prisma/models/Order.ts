@@ -30,6 +30,8 @@ export type OrderAvgAggregateOutputType = {
   price: runtime.Decimal | null
   quantity: runtime.Decimal | null
   remainingQuantity: runtime.Decimal | null
+  quoteAmount: runtime.Decimal | null
+  remainQuoteAmount: runtime.Decimal | null
   sequence: number | null
 }
 
@@ -37,6 +39,8 @@ export type OrderSumAggregateOutputType = {
   price: runtime.Decimal | null
   quantity: runtime.Decimal | null
   remainingQuantity: runtime.Decimal | null
+  quoteAmount: runtime.Decimal | null
+  remainQuoteAmount: runtime.Decimal | null
   sequence: bigint | null
 }
 
@@ -50,6 +54,8 @@ export type OrderMinAggregateOutputType = {
   price: runtime.Decimal | null
   quantity: runtime.Decimal | null
   remainingQuantity: runtime.Decimal | null
+  quoteAmount: runtime.Decimal | null
+  remainQuoteAmount: runtime.Decimal | null
   createdType: $Enums.CreatedType | null
   sequence: bigint | null
   createdAt: Date | null
@@ -66,6 +72,8 @@ export type OrderMaxAggregateOutputType = {
   price: runtime.Decimal | null
   quantity: runtime.Decimal | null
   remainingQuantity: runtime.Decimal | null
+  quoteAmount: runtime.Decimal | null
+  remainQuoteAmount: runtime.Decimal | null
   createdType: $Enums.CreatedType | null
   sequence: bigint | null
   createdAt: Date | null
@@ -82,6 +90,8 @@ export type OrderCountAggregateOutputType = {
   price: number
   quantity: number
   remainingQuantity: number
+  quoteAmount: number
+  remainQuoteAmount: number
   createdType: number
   sequence: number
   createdAt: number
@@ -94,6 +104,8 @@ export type OrderAvgAggregateInputType = {
   price?: true
   quantity?: true
   remainingQuantity?: true
+  quoteAmount?: true
+  remainQuoteAmount?: true
   sequence?: true
 }
 
@@ -101,6 +113,8 @@ export type OrderSumAggregateInputType = {
   price?: true
   quantity?: true
   remainingQuantity?: true
+  quoteAmount?: true
+  remainQuoteAmount?: true
   sequence?: true
 }
 
@@ -114,6 +128,8 @@ export type OrderMinAggregateInputType = {
   price?: true
   quantity?: true
   remainingQuantity?: true
+  quoteAmount?: true
+  remainQuoteAmount?: true
   createdType?: true
   sequence?: true
   createdAt?: true
@@ -130,6 +146,8 @@ export type OrderMaxAggregateInputType = {
   price?: true
   quantity?: true
   remainingQuantity?: true
+  quoteAmount?: true
+  remainQuoteAmount?: true
   createdType?: true
   sequence?: true
   createdAt?: true
@@ -146,6 +164,8 @@ export type OrderCountAggregateInputType = {
   price?: true
   quantity?: true
   remainingQuantity?: true
+  quoteAmount?: true
+  remainQuoteAmount?: true
   createdType?: true
   sequence?: true
   createdAt?: true
@@ -249,6 +269,8 @@ export type OrderGroupByOutputType = {
   price: runtime.Decimal | null
   quantity: runtime.Decimal
   remainingQuantity: runtime.Decimal
+  quoteAmount: runtime.Decimal | null
+  remainQuoteAmount: runtime.Decimal | null
   createdType: $Enums.CreatedType
   sequence: bigint | null
   createdAt: Date
@@ -288,6 +310,8 @@ export type OrderWhereInput = {
   price?: Prisma.DecimalNullableFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.DecimalNullableFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.DecimalNullableFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFilter<"Order"> | $Enums.CreatedType
   sequence?: Prisma.BigIntNullableFilter<"Order"> | bigint | number | null
   createdAt?: Prisma.DateTimeFilter<"Order"> | Date | string
@@ -308,6 +332,8 @@ export type OrderOrderByWithRelationInput = {
   price?: Prisma.SortOrderInput | Prisma.SortOrder
   quantity?: Prisma.SortOrder
   remainingQuantity?: Prisma.SortOrder
+  quoteAmount?: Prisma.SortOrderInput | Prisma.SortOrder
+  remainQuoteAmount?: Prisma.SortOrderInput | Prisma.SortOrder
   createdType?: Prisma.SortOrder
   sequence?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -331,6 +357,8 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   price?: Prisma.DecimalNullableFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.DecimalNullableFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.DecimalNullableFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFilter<"Order"> | $Enums.CreatedType
   sequence?: Prisma.BigIntNullableFilter<"Order"> | bigint | number | null
   createdAt?: Prisma.DateTimeFilter<"Order"> | Date | string
@@ -351,6 +379,8 @@ export type OrderOrderByWithAggregationInput = {
   price?: Prisma.SortOrderInput | Prisma.SortOrder
   quantity?: Prisma.SortOrder
   remainingQuantity?: Prisma.SortOrder
+  quoteAmount?: Prisma.SortOrderInput | Prisma.SortOrder
+  remainQuoteAmount?: Prisma.SortOrderInput | Prisma.SortOrder
   createdType?: Prisma.SortOrder
   sequence?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -375,6 +405,8 @@ export type OrderScalarWhereWithAggregatesInput = {
   price?: Prisma.DecimalNullableWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.DecimalNullableWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.DecimalNullableWithAggregatesFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeWithAggregatesFilter<"Order"> | $Enums.CreatedType
   sequence?: Prisma.BigIntNullableWithAggregatesFilter<"Order"> | bigint | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Order"> | Date | string
@@ -389,6 +421,8 @@ export type OrderCreateInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -409,6 +443,8 @@ export type OrderUncheckedCreateInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -425,6 +461,8 @@ export type OrderUpdateInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -445,6 +483,8 @@ export type OrderUncheckedUpdateInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -463,6 +503,8 @@ export type OrderCreateManyInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -477,6 +519,8 @@ export type OrderUpdateManyMutationInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -493,6 +537,8 @@ export type OrderUncheckedUpdateManyInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -519,6 +565,8 @@ export type OrderCountOrderByAggregateInput = {
   price?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   remainingQuantity?: Prisma.SortOrder
+  quoteAmount?: Prisma.SortOrder
+  remainQuoteAmount?: Prisma.SortOrder
   createdType?: Prisma.SortOrder
   sequence?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -529,6 +577,8 @@ export type OrderAvgOrderByAggregateInput = {
   price?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   remainingQuantity?: Prisma.SortOrder
+  quoteAmount?: Prisma.SortOrder
+  remainQuoteAmount?: Prisma.SortOrder
   sequence?: Prisma.SortOrder
 }
 
@@ -542,6 +592,8 @@ export type OrderMaxOrderByAggregateInput = {
   price?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   remainingQuantity?: Prisma.SortOrder
+  quoteAmount?: Prisma.SortOrder
+  remainQuoteAmount?: Prisma.SortOrder
   createdType?: Prisma.SortOrder
   sequence?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -558,6 +610,8 @@ export type OrderMinOrderByAggregateInput = {
   price?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   remainingQuantity?: Prisma.SortOrder
+  quoteAmount?: Prisma.SortOrder
+  remainQuoteAmount?: Prisma.SortOrder
   createdType?: Prisma.SortOrder
   sequence?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -568,6 +622,8 @@ export type OrderSumOrderByAggregateInput = {
   price?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   remainingQuantity?: Prisma.SortOrder
+  quoteAmount?: Prisma.SortOrder
+  remainQuoteAmount?: Prisma.SortOrder
   sequence?: Prisma.SortOrder
 }
 
@@ -728,6 +784,8 @@ export type OrderCreateWithoutUserInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -746,6 +804,8 @@ export type OrderUncheckedCreateWithoutUserInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -793,6 +853,8 @@ export type OrderScalarWhereInput = {
   price?: Prisma.DecimalNullableFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.DecimalNullableFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.DecimalNullableFilter<"Order"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFilter<"Order"> | $Enums.CreatedType
   sequence?: Prisma.BigIntNullableFilter<"Order"> | bigint | number | null
   createdAt?: Prisma.DateTimeFilter<"Order"> | Date | string
@@ -807,6 +869,8 @@ export type OrderCreateWithoutMarketInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -825,6 +889,8 @@ export type OrderUncheckedCreateWithoutMarketInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -867,6 +933,8 @@ export type OrderCreateWithoutBuyTradesInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -886,6 +954,8 @@ export type OrderUncheckedCreateWithoutBuyTradesInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -906,6 +976,8 @@ export type OrderCreateWithoutSellTradesInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -925,6 +997,8 @@ export type OrderUncheckedCreateWithoutSellTradesInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -956,6 +1030,8 @@ export type OrderUpdateWithoutBuyTradesInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -975,6 +1051,8 @@ export type OrderUncheckedUpdateWithoutBuyTradesInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1001,6 +1079,8 @@ export type OrderUpdateWithoutSellTradesInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1020,6 +1100,8 @@ export type OrderUncheckedUpdateWithoutSellTradesInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1036,6 +1118,8 @@ export type OrderCreateManyUserInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -1050,6 +1134,8 @@ export type OrderUpdateWithoutUserInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1068,6 +1154,8 @@ export type OrderUncheckedUpdateWithoutUserInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1085,6 +1173,8 @@ export type OrderUncheckedUpdateManyWithoutUserInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1100,6 +1190,8 @@ export type OrderCreateManyMarketInput = {
   price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType: $Enums.CreatedType
   sequence?: bigint | number | null
   createdAt?: Date | string
@@ -1114,6 +1206,8 @@ export type OrderUpdateWithoutMarketInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1132,6 +1226,8 @@ export type OrderUncheckedUpdateWithoutMarketInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1149,6 +1245,8 @@ export type OrderUncheckedUpdateManyWithoutMarketInput = {
   price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   remainingQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  remainQuoteAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   createdType?: Prisma.EnumCreatedTypeFieldUpdateOperationsInput | $Enums.CreatedType
   sequence?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1205,6 +1303,8 @@ export type OrderSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   price?: boolean
   quantity?: boolean
   remainingQuantity?: boolean
+  quoteAmount?: boolean
+  remainQuoteAmount?: boolean
   createdType?: boolean
   sequence?: boolean
   createdAt?: boolean
@@ -1226,6 +1326,8 @@ export type OrderSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   price?: boolean
   quantity?: boolean
   remainingQuantity?: boolean
+  quoteAmount?: boolean
+  remainQuoteAmount?: boolean
   createdType?: boolean
   sequence?: boolean
   createdAt?: boolean
@@ -1244,6 +1346,8 @@ export type OrderSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   price?: boolean
   quantity?: boolean
   remainingQuantity?: boolean
+  quoteAmount?: boolean
+  remainQuoteAmount?: boolean
   createdType?: boolean
   sequence?: boolean
   createdAt?: boolean
@@ -1262,13 +1366,15 @@ export type OrderSelectScalar = {
   price?: boolean
   quantity?: boolean
   remainingQuantity?: boolean
+  quoteAmount?: boolean
+  remainQuoteAmount?: boolean
   createdType?: boolean
   sequence?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "marketId" | "side" | "type" | "status" | "price" | "quantity" | "remainingQuantity" | "createdType" | "sequence" | "createdAt" | "updatedAt", ExtArgs["result"]["order"]>
+export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "marketId" | "side" | "type" | "status" | "price" | "quantity" | "remainingQuantity" | "quoteAmount" | "remainQuoteAmount" | "createdType" | "sequence" | "createdAt" | "updatedAt", ExtArgs["result"]["order"]>
 export type OrderInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   market?: boolean | Prisma.MarketDefaultArgs<ExtArgs>
@@ -1303,6 +1409,8 @@ export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     price: runtime.Decimal | null
     quantity: runtime.Decimal
     remainingQuantity: runtime.Decimal
+    quoteAmount: runtime.Decimal | null
+    remainQuoteAmount: runtime.Decimal | null
     createdType: $Enums.CreatedType
     sequence: bigint | null
     createdAt: Date
@@ -1743,6 +1851,8 @@ export interface OrderFieldRefs {
   readonly price: Prisma.FieldRef<"Order", 'Decimal'>
   readonly quantity: Prisma.FieldRef<"Order", 'Decimal'>
   readonly remainingQuantity: Prisma.FieldRef<"Order", 'Decimal'>
+  readonly quoteAmount: Prisma.FieldRef<"Order", 'Decimal'>
+  readonly remainQuoteAmount: Prisma.FieldRef<"Order", 'Decimal'>
   readonly createdType: Prisma.FieldRef<"Order", 'CreatedType'>
   readonly sequence: Prisma.FieldRef<"Order", 'BigInt'>
   readonly createdAt: Prisma.FieldRef<"Order", 'DateTime'>

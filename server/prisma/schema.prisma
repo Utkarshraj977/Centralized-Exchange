@@ -49,6 +49,10 @@ enum LedgerType {
   RELEASE
 }
 
+enum Role{
+  USER
+  ADMIN
+}
 
 model User {
   id        String   @id @default(uuid()) @db.Uuid
@@ -62,7 +66,7 @@ model User {
   wallet    Wallet?
   orders    Order[]
   sessions   Session[]
-
+  role      Role     @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -137,6 +141,8 @@ model Order {
   price            Decimal?
   quantity         Decimal
   remainingQuantity Decimal
+  quoteAmount      Decimal?
+  remainQuoteAmount Decimal?
 
   createdType CreatedType
   sequence    BigInt?
@@ -150,6 +156,7 @@ model Order {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
 
 
 model Trade {

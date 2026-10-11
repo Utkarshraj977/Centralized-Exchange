@@ -84,6 +84,7 @@ export const UserScalarFieldEnum = {
   firstName: 'firstName',
   lastName: 'lastName',
   email: 'email',
+  role: 'role',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -148,6 +149,8 @@ export const OrderScalarFieldEnum = {
   price: 'price',
   quantity: 'quantity',
   remainingQuantity: 'remainingQuantity',
+  quoteAmount: 'quoteAmount',
+  remainQuoteAmount: 'remainQuoteAmount',
   createdType: 'createdType',
   sequence: 'sequence',
   createdAt: 'createdAt',
